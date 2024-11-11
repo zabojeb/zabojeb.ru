@@ -2,7 +2,7 @@
 let letters = "zabojeb".split("");
 
 // Array of font names to use for each letter
-let fonts = ["Stick", "Barrio", "Chokokutai", "Barriecto", "Yatra One"];
+let fonts = ["Stick", "Barrio", "Chokokutai", "Barriecito", "Yatra One"];
 let letterFonts = [];
 
 // Interval for updating letter fonts (in milliseconds)
