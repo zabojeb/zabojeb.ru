@@ -84,6 +84,18 @@ function draw() {
     lp.draw();
   });
 
+  // VISUAL BUG FIX: Clear the mouse trail if the mouse has moved too far
+  if (
+    mouseTrailPoints.length > 0 &&
+    (Math.abs(mouseTrailPoints[mouseTrailPoints.length - 1].x - mouseX) >
+      width / 4 ||
+      Math.abs(mouseTrailPoints[mouseTrailPoints.length - 1].y - mouseY) >
+        height / 4)
+  ) {
+    mouseTrailPoints = [];
+  }
+  // END OF THE FIX
+
   if (!isMobile) {
     // Enhanced mouse trail
     mouseTrailPoints.push({ x: mouseX, y: mouseY, age: 255 });

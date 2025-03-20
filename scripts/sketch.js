@@ -73,6 +73,16 @@ function draw() {
     x += fontSize * 0.5;
   }
 
+  // VISUAL BUG FIX: Clear the mouse trail if the mouse has moved too far
+  if (
+    mouseTrailPoints.length > 0 &&
+    (Math.abs(mouseTrailPoints[mouseTrailPoints.length - 1].x - mouseX) > width / 4 ||
+      Math.abs(mouseTrailPoints[mouseTrailPoints.length - 1].y - mouseY) > height / 4)
+  ) {
+    mouseTrailPoints = [];
+  }
+  // END OF THE FIX
+
   // Only show mouse effects on non-touch devices
   if (!isMobile) {
     // Update mouse trail
